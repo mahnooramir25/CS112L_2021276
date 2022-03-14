@@ -1,0 +1,61 @@
+// Lab 5 Task 5.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+// t1 276.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+class Heater
+{
+public:
+    int temperature;
+    Heater()
+    {
+        temperature = 15; //default value
+    }
+        int warmer()
+        {
+            temperature = temperature + 5;
+            return (temperature);
+        }
+        int cooler()
+        {
+            temperature = temperature -5 ;
+            return (temperature);
+        }
+    
+
+    ~Heater() //Destructor
+    {
+        cout << "Destructed" << endl;
+    }
+};
+int main()
+{
+    Heater h;
+    int option;
+    cout << "Temperature was " << h.temperature << endl;
+    while (1)
+    {
+        cout << "Enter the desired option" << endl;
+        cout << "1.Warmer" << endl;
+        cout << "2.Cooler" << endl;
+        cout << "3.Exit" << endl;
+        cin >> option;
+
+        switch (option)
+        {
+        case 1:
+            cout << "Temperature is " << h.warmer() << endl;
+            break;
+        case 2:
+            cout << "Temperature is " << h.cooler() << endl;
+            break;
+        case 3:
+            return 0;
+            break;
+        }
+    }
+
+}
