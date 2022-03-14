@@ -8,23 +8,26 @@
 using namespace std;
 class Heater
 {
-public:
     int temperature;
+public:
     Heater()
     {
         temperature = 15; //default value
     }
-        int warmer()
-        {
-            temperature = temperature + 5;
-            return (temperature);
-        }
-        int cooler()
-        {
-            temperature = temperature -5 ;
-            return (temperature);
-        }
-    
+    int warmer() //function increases temperature by 5 units
+    {
+        temperature = temperature + 5;
+        return (temperature);
+    }
+    int cooler() //function increases temperature by 5 units
+    {
+        temperature = temperature - 5;
+        return (temperature);
+    }
+    void accessor()
+    {
+        cout << "Temperature right now is " << temperature << endl;
+    }
 
     ~Heater() //Destructor
     {
@@ -35,7 +38,7 @@ int main()
 {
     Heater h;
     int option;
-    cout << "Temperature was " << h.temperature << endl;
+    h.accessor();
     while (1)
     {
         cout << "Enter the desired option" << endl;
@@ -59,3 +62,5 @@ int main()
     }
 
 }
+
+
