@@ -1,0 +1,144 @@
+// t3 276.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+class stringType
+{
+public:
+    string first[11];
+    string second[11];
+
+    stringType()
+    {
+    }
+    void setValues(string str1, string str2)
+    {
+        cout << "Enter values for string 1" << endl;
+        for (int i; i < 10; i++)
+        {
+            cin >> first[i];
+        }
+        cout << "Enter values for string 2" << endl;
+        for (int i; i < 10; i++)
+        {
+            cin >> second[i];
+        }
+    }
+    void printValues()
+    {
+        cout << "Values in string 1 are" << endl;
+        for (int i; i < 10; i++)
+        {
+            cout << first[i];
+        }
+        cout << "Values in string 2 are" << endl;
+        for (int i; i < 10; i++)
+        {
+            cout << second[i];
+        }
+    }
+    int maxLength()
+    {
+        int length = 0;
+        for (int i = 0; first[i] != "\0"; i++)
+            length++;
+        return length;
+    }
+    int compare(string s1, string s2)
+    {
+        for (int i = 0; ; i++)
+        {
+            if (first[i] == "\0" && second[i] == "\0")
+            {
+                return 0;
+            }
+            if (second > first)
+                return 1;
+            if (first > second)
+                return -1;
+        }
+    }
+    void copy(string source, string destination)
+    {
+        for (int i = 0; source[i] != '\0'; i++)
+        {
+            second[i] = first[i];
+        }
+        cout << "Elements in copied into new array are:";
+        for (int i = 0; i < 8; i++)
+        {
+            cout << second[i];
+        }
+    }
+    string concatenate(string s1, string s2)
+        { 
+        string neww[17];
+        for(int i=0;i<8;i++)
+        {
+            neww[i] = first[i];
+        }
+        for (int i = 8; i < 17; i++)
+        {
+            neww[i] = first[i];
+        }
+        for (int i = 0; i < 17; i++)
+        {
+            cout << neww[i];
+        }
+
+        }
+    int searchWord(string word)
+    {
+        int j = 0;
+        while (first[j] != '\0')
+        {
+            for (int i = 0; word[i] != '\0'; i++)
+            {
+                if (first[j + i] == word[i])
+                {
+
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            if (1)
+                break;
+            j++;
+        }
+        
+    }
+        int searchChar(char ch)
+        {
+            for (int i = 0; first[i] != '\0'; i++)
+                if (first[i] == ch)
+                    return 1;
+                else
+                    return -1;
+        }
+};
+int main()
+{
+    stringType s1;
+    s1.setValues("Mahnoor", "I'm");
+    s1.printValues();
+    cout << s1.concatenate("wesay", "cometommorow") << endl;
+    s1.printValues();
+    cout << s1.searchWord("wes") << endl;
+    s1.printValues();
+    cout << s1.searchWord("I'm") << endl;
+    s1.printValues();
+    cout << s1.searchChar('o') << endl;
+    s1.printValues();
+    cout << s1.searchChar('v') << endl;
+    s1.printValues();
+    cout << "Length is ";
+    s1.maxLength();
+
+    return 0;
+}
+
+
