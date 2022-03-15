@@ -1,0 +1,109 @@
+// t2 276.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+class parity
+{
+    int size;
+    int* arr;
+    int* deletearr;
+public:
+    parity()
+    {
+        size = 0;
+       
+        
+    }
+    void put(int num);
+    void print(void);
+    void dlete();
+    int test(void);
+
+    ~parity()
+    {
+        delete[] arr;
+        cout << "Destructed" << endl;
+    }
+};
+int main()
+{
+    parity Ob;
+    int num, size;
+    cout << "How many values do you want to enter?"<<endl;
+    cin >> size;
+    for (int i = 0; i < size; i++)
+    {
+        cout << "enter number\n";
+        cin >> num;
+        Ob.put(num);
+    }
+        Ob.print();
+        cout << "Even input is indicated by 1 and Odd input is indicated by 0" << endl;
+        cout<<Ob.test()<<endl;
+        Ob.dlete();
+        Ob.print();
+
+}
+void parity::put(int num) // Put another element
+{
+   
+    
+    int* temp = new int[++size];
+    
+        for (int i = 0; i < size - 1 ; i++)
+        {
+            temp[i] = arr[i];
+        }
+
+        temp[size - 1] = num;
+
+        delete[]arr;
+
+        arr = new int[size];
+        for (int i = 0; i < size ; i++)
+        {
+            arr[i] = temp[i];
+        }
+
+        delete[] temp;
+
+
+}
+void parity::print(void) // Prints all elements that have been Put till now
+{
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+void parity::dlete() // Delete only last elements that had been added using Put function
+{
+    size--;
+    int* temp = new int[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        temp[i] = arr[i];
+    }
+
+    delete[]arr;
+
+    arr = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = temp[i];
+    }
+
+    delete[] temp;
+
+}
+int parity::test(void) // Return TRUE(1) if an even number of puts have been done. Return FALSE(O) for an odd number.
+{
+   
+    if (size % 2 == 0)
+        return 1;
+    else
+        return 0;
+}
