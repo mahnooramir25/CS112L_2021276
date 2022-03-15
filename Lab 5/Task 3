@@ -6,8 +6,8 @@ using namespace std;
 class stringType
 {
 public:
-    string first[11];
-    string second[11];
+    string first;
+    string second;
 
     stringType()
     {
@@ -15,12 +15,12 @@ public:
     void setValues(string str1, string str2)
     {
         cout << "Enter values for string 1" << endl;
-        for (int i; i < 10; i++)
+        for (int i=0; i < 10; i++)
         {
             cin >> first[i];
         }
         cout << "Enter values for string 2" << endl;
-        for (int i; i < 10; i++)
+        for (int i=0; i < 10; i++)
         {
             cin >> second[i];
         }
@@ -28,12 +28,12 @@ public:
     void printValues()
     {
         cout << "Values in string 1 are" << endl;
-        for (int i; i < 10; i++)
+        for (int i=0; i < 10; i++)
         {
             cout << first[i];
         }
         cout << "Values in string 2 are" << endl;
-        for (int i; i < 10; i++)
+        for (int i=0; i < 10; i++)
         {
             cout << second[i];
         }
@@ -41,7 +41,7 @@ public:
     int maxLength()
     {
         int length = 0;
-        for (int i = 0; first[i] != "\0"; i++)
+        for (int i = 0; first[i] != '\0'; i++)
             length++;
         return length;
     }
@@ -49,7 +49,7 @@ public:
     {
         for (int i = 0; ; i++)
         {
-            if (first[i] == "\0" && second[i] == "\0")
+            if (first[i] == '\0' && second[i] == '\0')
             {
                 return 0;
             }
@@ -86,7 +86,6 @@ public:
         {
             cout << neww[i];
         }
-
         }
     int searchWord(string word)
     {
@@ -125,7 +124,7 @@ int main()
     stringType s1;
     s1.setValues("Mahnoor", "I'm");
     s1.printValues();
-    cout << s1.concatenate("wesay", "cometommorow") << endl;
+    cout << s1.concatenate("I'll", "cometommorow") << endl;
     s1.printValues();
     cout << s1.searchWord("wes") << endl;
     s1.printValues();
