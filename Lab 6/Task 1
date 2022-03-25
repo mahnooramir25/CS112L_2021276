@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+class Person
+{
+private:
+	string comp;
+	string uni;
+
+public:
+	void take()
+	{
+		cout << "Enter Competition name";
+		cin >> comp;
+		cout << "Enter University name";
+		cin >> uni;
+	}
+
+	friend class Coordinator;
+};
+	class Coordinator
+	{ private:
+		Person p1;
+		Person p2;
+	public:
+		
+	};
+
+};
+int main()
+{
+
+	return 0;
+}
+// int num;
+
+	   //cout<<"Enter a number \n";
+	   //cin >> num;
+
+	   //copy the 'num' to 'temp' and initialize 'rev' with 0
