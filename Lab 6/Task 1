@@ -1,39 +1,105 @@
-#include <iostream>
+#include<iostream>
+#include<string>
 using namespace std;
 class Person
 {
-private:
-	string comp;
-	string uni;
-
 public:
-	void take()
-	{
-		cout << "Enter Competition name";
-		cin >> comp;
-		cout << "Enter University name";
-		cin >> uni;
-	}
-
 	friend class Coordinator;
+	Person() {};
+	
+	
 };
-	class Coordinator
-	{ private:
-		Person p1;
-		Person p2;
-	public:
+class Coordinator
+{
+	string nameofcand;
+	int chkchar1, chkchar2;
+public:
+	string namee()
+	{
+		cout << "Enter the name and institute name of the candidates ";
+		getline(cin,nameofcand);
+		return nameofcand;
+	}
+	 int roomnumber(string a, string b)
+	{
 		
-	};
+			chkchar1 = a.length();
 
+			chkchar2 = b.length();
+			if (chkchar1 >= chkchar2  )
+			{
+				return chkchar1;
+			}
+			else if (chkchar1 < chkchar2 )
+			{
+				return chkchar2;
+			}
+			
+		
+		;
+	}
+	void chkroommates(string ins1, string ins2,int num)
+	{
+		if (ins1 == ins2)
+		{
+			cout << "You are roommates and room number is " << num;
+		}
+		else
+			cout << "You are not roommates ";
+	}
 };
 int main()
 {
+	string p1name, p2name, comp1, comp2,institute1,institute2,mainname,ins1,ins2,name3,name4;
+	int num1;
+	Coordinator person1, person2,chkk,chkkk,chk1;
+	p1name = person1.namee();
+	p2name = person2.namee();
+	
 
+
+	for (int i = 0; i < p1name.length(); i++)
+	{
+		if (p1name[i] == ' ')
+		{
+			for (int j = i; j < p1name.length(); j++) {
+				institute1 += p1name[j];
+			}
+
+			break;
+		}
+		else
+			comp1 += p1name[i];
+
+	}
+
+
+
+
+	
+	for (int i = 0; i < p2name.length(); i++)
+	{
+		if (p2name[i] == ' ')
+		{
+			for (int j = i; j < p2name.length(); j++) {
+				institute2 += p2name[j];
+			}
+
+			break;
+		}
+		else
+			comp2 += p2name[i];
+
+	}
+	
+	num1=chkk.roomnumber(comp1, comp2);
+	chkkk.chkroommates(institute1, institute2, num1);
+	
 	return 0;
+	
+
+
+
+
+
 }
-// int num;
-
-	   //cout<<"Enter a number \n";
-	   //cin >> num;
-
-	   //copy the 'num' to 'temp' and initialize 'rev' with 0
