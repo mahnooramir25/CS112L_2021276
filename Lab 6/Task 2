@@ -5,7 +5,7 @@ class Check
 private:
     int ID;
     string name;
-  
+
 public:
     void set(int i, string nam, int c)
     {
@@ -15,10 +15,10 @@ public:
     }
     void entry()
     {
-       
+
         int temp = ID, rev = 0;
 
-      
+
         while (temp > 0) {
             rev = rev * 10 + temp % 10;
             temp = temp / 10;
@@ -44,7 +44,7 @@ int main()
     int rank;
     int id;
     int op;
-    
+
     while (1)
     {
         cout << "Enter option" << endl;
@@ -52,8 +52,7 @@ int main()
         cout << "2.Get total number of officers" << endl;
         cout << "3.Exit" << endl;
         cin >> op;
-        if (op == 1)
-            count++;
+            
         switch (op)
         {
         case 1:
@@ -63,23 +62,20 @@ int main()
             cin >> id;
             cout << "Enter rank" << endl;
             cin >> rank;
-            C.set(id, n,count);
+            C.set(id, n, count);
             C.entry();
+            count++;
             break;
         case 2:
-            
+
             C.print(count);
             break;
         case 3:
-            
+
             return 0;
             break;
         }
 
     }
-    
+
 }
-
-
-
-
