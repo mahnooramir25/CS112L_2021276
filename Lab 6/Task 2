@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+class Check
+{
+private:
+    int ID;
+    string name;
+  
+public:
+    void set(int i, string nam, int c)
+    {
+        name = nam;
+        ID = i;
+        c++;
+    }
+    void entry()
+    {
+       
+        int temp = ID, rev = 0;
+
+      
+        while (temp > 0) {
+            rev = rev * 10 + temp % 10;
+            temp = temp / 10;
+        }
+
+        if (rev == ID)
+            cout << "Officer is allowed to enter the restricted area.\n";
+        else
+            cout << "Officer is not allowed to enter the restricted area! \n";
+    }
+    void print(int c)
+    {
+        cout << "Total members uptill now in area are " << c << endl;
+    }
+};
+
+
+int main()
+{
+    static int count;
+    Check C;
+    string n;
+    int rank;
+    int id;
+    int op;
+    
+    while (1)
+    {
+        cout << "Enter option" << endl;
+        cout << "1.Enter ID of Officer" << endl;
+        cout << "2.Get total number of officers" << endl;
+        cout << "3.Exit" << endl;
+        cin >> op;
+        if (op == 1)
+            count++;
+        switch (op)
+        {
+        case 1:
+            cout << "Enter name" << endl;
+            cin >> n;
+            cout << "Enter ID" << endl;
+            cin >> id;
+            cout << "Enter rank" << endl;
+            cin >> rank;
+            C.set(id, n,count);
+            C.entry();
+            break;
+        case 2:
+            
+            C.print(count);
+            break;
+        case 3:
+            
+            return 0;
+            break;
+        }
+
+    }
+    
+}
+
+
+
+
